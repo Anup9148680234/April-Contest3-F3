@@ -1,7 +1,13 @@
 let access = localStorage.getItem("access-token");
-if(access == "null"){
+if(access){
+    if(access == "null"){
+        window.location.href = "index.html";
+    }
+}
+else{
     window.location.href = "index.html";
 }
+
 
 
 let x = localStorage.getItem("userState");

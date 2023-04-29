@@ -1,7 +1,10 @@
 
+
 let access = localStorage.getItem("access-token");
-if(access != "null"){
-    window.location.href = "profile.html";
+if(access){
+    if(access!="" && access!="null"){
+        window.location.href = "profile.html";
+    }
 }
 
 function proMsg(){
@@ -59,17 +62,15 @@ function SignUpUser(){
         `
     }
     else{
-        
+        notfirstTime = true;
         let token = generateRandomString();
         localStorage.setItem("access-token",token);
         setTimeout(dispSwitch, 3000);
-
         let userState = {
             "name": name.value,
             "email": email.value,
             "password": pass1.value
         }
-        
         localStorage.setItem("userState",JSON.stringify(userState));
         dialog.innerHTML = `
             <p style="color:green;">Signed Up successfully!</p>
